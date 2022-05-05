@@ -38,17 +38,18 @@ export default {
     this.getMovies()
   },
   methods: {
+
+    //api to fetch movies
     getMovies () {
       let vm = this;
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=48b43c71c226d58239efb833d05ab17c&language=en-US&query=NASA&include_adult=false&1', {
       })
         .then(function (response) {
-          console.log(response.data.results);
           vm.movies_data = response.data.results
         })
     },
     backgroundImageInlineStyle (row) {
-      console.log(row)
+      //method to set background-image url for each movies box 
       let image = row.poster_path !== null ? 'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'
       return 'background-image:url(' + image + ')';
     }

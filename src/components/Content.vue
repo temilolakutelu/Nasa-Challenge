@@ -1,21 +1,29 @@
+/* eslint-disable vue/require-v-for-key */
 <template>
   <div class="main">
-    <div class="row container-fluid">
-      <div class="box col-xl-2 col-lg-3 col-md-4 col-sm-6 m-2">
-        <a href="/movies/706614">
-          <img src />
-          <h1 class="css-1srwy3f">NASA &amp; SpaceX: Journey to the Future</h1>
+    <div class="row">
+      <div
+        v-for="(row,ix) of movies_data"
+        v-bind:key="ix"
+        class="box col-xl-3 col-md-4 col-sm-6 m-2"
+      >
+        <a :href="'https://nasa-movies.netlify.app/movies/'+ row.id">
+          <div class="img-container">
+            <img
+              :src="row.poster_path!==null?'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'"
+              class="img-fluid"
+            />
+          </div>
+          <h1 class="css-1srwy3f">{{row.original_title}}</h1>
           <h4 class="css-fkz7sy">Description:</h4>
-          <p
-            class="css-tisqv0"
-          >A film crew was granted unprecedented access to NASA and to SpaceX headquarters, giving viewers a rare glimpse inside Launch Control and firsthand accounts from SpaceX founder and chief engineer Elon Musk, Bridentstine and the astronauts flying the mission: Bob Behnken and Doug Hurley.</p>
+          <p class="css-tisqv0">{{row.overview}}</p>
           <p class="css-1q2plns">
             Popularity:
-            <em>4.015</em>
+            <em>{{row.popularity}}</em>
           </p>
           <p class="css-1q2plns">
             Release Date:
-            <em>2020-05-25</em>
+            <em>{{row.release_date}}</em>
           </p>
         </a>
       </div>
@@ -30,7 +38,7 @@ export default {
   name: 'MainContent',
   data () {
     return {
-      movie_data: []
+      movies_data: []
     }
   },
   mounted () {
@@ -38,10 +46,12 @@ export default {
   },
   methods: {
     getMovies () {
+      let vm = this;
       axios.get('https://api.themoviedb.org/3/search/movie?api_key=48b43c71c226d58239efb833d05ab17c&language=en-US&query=NASA&include_adult=false&1', {
       })
         .then(function (response) {
-          console.log(response);
+          console.log(response.data.results);
+          vm.movies_data = response.data.results
         })
     },
   }

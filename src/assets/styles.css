@@ -6,6 +6,11 @@ body {
     margin: 0px!important;
 }
 
+*,
+*:hover {
+    outline: none!important;
+}
+
 .header {
     position: relative;
 }
@@ -35,22 +40,21 @@ div.main {
     border-radius: 4px;
     flex-basis: 100%;
     margin: 20px 0px 0px;
+    height: 100%;
 }
 
 .box a {
     text-decoration: none;
-    color: rgb(0, 0, 0);
 }
 
 .box .img-container {
+    background-size: contain;
+    background-repeat: no-repeat;
+    background-position: center center;
     display: block;
     min-height: 400px;
     width: 100%;
     margin: 0px 0px 20px;
-}
-
-.box .img-container img {
-    height: 400px;
 }
 
 .box .title {
@@ -58,20 +62,37 @@ div.main {
     text-align: center;
     color: rgb(255, 183, 3);
     font-weight: bold;
-    font-size: 23px;
-    height: 45px;
+    font-size: 2em;
+    margin-bottom: 20px;
 }
 
 .box .description {
     margin: 0px 0px 10px;
-    font-size: 18px;
+    font-size: 16px;
+    font-weight: bold;
+    color: rgb(0, 0, 0);
 }
 
 .box .overview {
     margin: 0px 0px 20px;
+    line-height: 18px;
+    color: rgb(0, 0, 0);
 }
 
-.box .label em {
+.box .label {
+    color: rgb(0, 0, 0);
+}
+
+a:hover,
+.box .description:hover,
+.box .overview:hover {
+    color: currentColor!important;
+    text-decoration: none!important;
+}
+
+.box .label em,
+.box .label em:hover {
     color: rgb(255, 183, 3);
     font-style: normal;
+    text-decoration: none!important;
 }

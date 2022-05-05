@@ -1,16 +1,11 @@
 /* eslint-disable vue/require-v-for-key */
 <template>
-  <div class="main">
+  <div class="main mb-4">
     <div class="row">
-      <div v-for="(row,ix) of movies_data" v-bind:key="ix" class="col-xl-3 col-md-4 col-sm-6">
+      <div v-for="(row,ix) of movies_data" v-bind:key="ix" class="col-xl-3 col-lg-4 col-sm-6 mb-3">
         <div class="box">
           <a :href="'https://nasa-movies.netlify.app/movies/'+ row.id">
-            <div class="img-container">
-              <img
-                :src="row.poster_path!==null?'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'"
-                class="img-fluid"
-              />
-            </div>
+            <div class="img-container" :style="backgroundImageInlineStyle(row)"></div>
             <h1 class="title">{{row.original_title}}</h1>
             <h4 class="description">Description:</h4>
             <p class="overview">{{row.overview}}</p>
@@ -52,6 +47,11 @@ export default {
           vm.movies_data = response.data.results
         })
     },
+    backgroundImageInlineStyle (row) {
+      console.log(row)
+      let image = row.poster_path !== null ? 'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'
+      return 'background-image:url(' + image + ')';
+    }
   }
 }
 </script>

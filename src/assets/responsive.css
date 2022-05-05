@@ -1,0 +1,11 @@
+ @media only screen and (max-width: 425px) {
+     h1.headerText {
+         text-align: center;
+         width: 100%;
+         font-size: 18px;
+     }
+     .box .title {
+         font-size: 2em;
+         margin-bottom: 20px;
+     }
+ }

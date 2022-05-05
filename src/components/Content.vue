@@ -23,10 +23,28 @@
   </div>
 </template>
 
-<script> 
+
+<script>
+import axios from 'axios';
 export default {
   name: 'MainContent',
-
+  data () {
+    return {
+      movie_data: []
+    }
+  },
+  mounted () {
+    this.getMovies()
+  },
+  methods: {
+    getMovies () {
+      axios.get('https://api.themoviedb.org/3/search/movie?api_key=48b43c71c226d58239efb833d05ab17c&language=en-US&query=NASA&include_adult=false&1', {
+      })
+        .then(function (response) {
+          console.log(response);
+        })
+    },
+  }
 }
 </script>
 

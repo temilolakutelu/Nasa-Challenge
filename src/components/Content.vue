@@ -2,30 +2,28 @@
 <template>
   <div class="main">
     <div class="row">
-      <div
-        v-for="(row,ix) of movies_data"
-        v-bind:key="ix"
-        class="box col-xl-3 col-md-4 col-sm-6 m-2"
-      >
-        <a :href="'https://nasa-movies.netlify.app/movies/'+ row.id">
-          <div class="img-container">
-            <img
-              :src="row.poster_path!==null?'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'"
-              class="img-fluid"
-            />
-          </div>
-          <h1 class="css-1srwy3f">{{row.original_title}}</h1>
-          <h4 class="css-fkz7sy">Description:</h4>
-          <p class="css-tisqv0">{{row.overview}}</p>
-          <p class="css-1q2plns">
-            Popularity:
-            <em>{{row.popularity}}</em>
-          </p>
-          <p class="css-1q2plns">
-            Release Date:
-            <em>{{row.release_date}}</em>
-          </p>
-        </a>
+      <div v-for="(row,ix) of movies_data" v-bind:key="ix" class="col-xl-3 col-md-4 col-sm-6">
+        <div class="box">
+          <a :href="'https://nasa-movies.netlify.app/movies/'+ row.id">
+            <div class="img-container">
+              <img
+                :src="row.poster_path!==null?'https://image.tmdb.org/t/p/original' + row.poster_path : 'https://nasa-movies.netlify.app/image/gallery.png'"
+                class="img-fluid"
+              />
+            </div>
+            <h1 class="title">{{row.original_title}}</h1>
+            <h4 class="description">Description:</h4>
+            <p class="overview">{{row.overview}}</p>
+            <p class="label">
+              Popularity:
+              <em>{{row.popularity}}</em>
+            </p>
+            <p class="label">
+              Release Date:
+              <em>{{row.release_date}}</em>
+            </p>
+          </a>
+        </div>
       </div>
     </div>
   </div>

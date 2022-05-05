@@ -1,7 +1,7 @@
 <template>
   <div class="header container-fluid">
     <h1 class="headerText">
-      <span>NASA:</span>Picture of the Day
+      <span>NASA:</span> Picture of the Day
       <div>Thursday, May 5, 2022</div>
     </h1>
     <img

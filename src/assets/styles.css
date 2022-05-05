@@ -1,5 +1,5 @@
 body {
-    font-family: 'PT Sans Narrow', sans-serif!important;
+    font-family: sans-serif!important;
     background-color: rgb(0, 0, 0)!important;
     color: rgb(255, 255, 255)!important;
     padding: 0px!important;
@@ -15,6 +15,8 @@ h1.headerText {
     width: calc(100% - 40px);
     padding: 10px 20px;
     color: rgb(142, 202, 230);
+    font-size: 24px;
+    font-weight: bold;
 }
 
 h1.headerText span {
@@ -47,22 +49,29 @@ div.main {
     margin: 0px 0px 20px;
 }
 
-.box .css-1srwy3f {
+.box .img-container img {
+    height: 400px;
+}
+
+.box .title {
     margin: 0px 0px 20px;
     text-align: center;
     color: rgb(255, 183, 3);
     font-weight: bold;
+    font-size: 23px;
+    height: 45px;
 }
 
-.box .css-fkz7sy {
+.box .description {
     margin: 0px 0px 10px;
+    font-size: 18px;
 }
 
-.box .css-tisqv0 {
+.box .overview {
     margin: 0px 0px 20px;
 }
 
-.box .css-1q2plns em {
+.box .label em {
     color: rgb(255, 183, 3);
     font-style: normal;
 }
